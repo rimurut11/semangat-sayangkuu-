@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Sayangku - Menuju 2027</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Latar Belakang Cahaya Ungu & Partikel -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div id="particles-container"></div>
+
+    <!-- Animasi Pesawat Kertas Terbang -->
+    <div id="paperPlaneFly" class="paper-plane-fly hidden">
+        <i class="fa-solid fa-paper-plane"></i>
+    </div>
+
+    <!-- FRAME HP MOBILE -->
+    <div class="phone-container">
+
+        <!-- ========================================================== -->
+        <!-- BAB 1: LOCK SCREEN & PIN RAHASIA                           -->
+        <!-- [YANG BISA DIRUBAH]: PIN default "2027", teks judul, tanggal -->
+        <!-- ========================================================== -->
+        <section id="bab1" class="page active-page">
+            <div class="status-bar">
+                <span class="currentTime">00:00</span>
+                <div class="status-icons">
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-battery-full"></i>
+                </div>
+            </div>
+
+            <div class="lock-header">
+                <p class="currentDate">Senin, 11 Oktober</p>
+                <h1 class="lock-title">Semangat Sayangkuu ✨</h1>
+                <p id="lockStatusText" class="lock-subtitle">Masukkan PIN rahasia untuk membuka</p>
+            </div>
+
+            <div class="pin-dots-container" id="pinDots">
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+            </div>
+
+            <div class="keypad-container">
+                <button class="keypad-btn" data-value="1">1</button>
+                <button class="keypad-btn" data-value="2">2</button>
+                <button class="keypad-btn" data-value="3">3</button>
+                <button class="keypad-btn" data-value="4">4</button>
+                <button class="keypad-btn" data-value="5">5</button>
+                <button class="keypad-btn" data-value="6">6</button>
+                <button class="keypad-btn" data-value="7">7</button>
+                <button class="keypad-btn" data-value="8">8</button>
+                <button class="keypad-btn" data-value="9">9</button>
+                <button class="keypad-btn action-key" id="hintBtn" title="Petunjuk PIN"><i class="fa-solid fa-lightbulb"></i></button>
+                <button class="keypad-btn" data-value="0">0</button>
+                <button class="keypad-btn action-key" id="deleteBtn" title="Hapus"><i class="fa-solid fa-backspace"></i></button>
+            </div>
+
+            <div id="hintBox" class="hint-box hidden">
+                <p>💡 <b>Petunjuk PIN:</b> Tahun Perjuangan Baru (<b>1625</b>)</p>
+            </div>
+
+            <div id="unlockSuccess" class="unlock-success-msg hidden">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <p>PIN Benar! Membuka Pintu Hati...</p>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 2: SAMBUTAN & MUSIK KETENANGAN                         -->
+        <!-- [YANG BISA DIRUBAH]: Teks sambutan dan link lagu di script.js -->
+        <!-- ========================================================== -->
+        <section id="bab2" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Sambutan & Musik Ketenangan</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="music-card glass-card">
+                    <div class="music-info">
+                        <div class="music-icon-pulse"><i class="fa-solid fa-music"></i></div>
+                        <div>
+                            <h4>Musik Latar Pilihan</h4>
+                            <p id="musicStatusText">Ketuk untuk putar musik</p>
+                        </div>
+                    </div>
+                    <button id="musicToggleBtn" class="music-play-btn"><i class="fa-solid fa-play" id="playIcon"></i></button>
+                </div>
+                <audio id="bgAudio" loop></audio>
+
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+                    <h3>Tenangkan Dirimu Dulu...</h3>
+                    <p>Sebelum kamu membaca barisan kata di halaman berikutnya, nyalakan musik di atas agar suasana hatimu terasa lebih tenang, hangat, dan damai.</p>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(1)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(3)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 3: VALIDASI RASA LELAH 2026                            -->
+        <!-- [YANG BISA DIRUBAH]: Paragraf cerita empati tahun 2026      -->
+        <!-- ========================================================== -->
+        <section id="bab3" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Validasi Rasa Lelah 2026</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-cloud-rain"></i></div>
+                    <h3>Tahun 2026 yang Menguras Tenaga</h3>
+                    <p>Aku tahu tahun ini bukan hal yang mudah. Ada lelah yang menumpuk, air mata yang sempat jatuh, dan rasa kecewa ketika hasil kampus impian belum berpihak.</p>
+                </div>
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-heart-crack"></i></div>
+                    <h3>Boleh Sedih, Tapi Jangan Menyerah</h3>
+                    <p>Merasa sedih itu manusiawi. Lepaskan saja jika ingin menangis. Kamu sudah berjuang sehebat itu, dan aku tahu persis bagaimana kerasnya usahamu.</p>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(2)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(4)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 4: APRESIASI & KOTAK MISTERI (SURAT TERSEMBUNYI)       -->
+        <!-- [YANG BISA DIRUBAH]: Teks di dalam kotak misteri           -->
+        <!-- ========================================================== -->
+        <section id="bab4" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Apresiasi Perjuanganmu</h2></div>
+            
+            <div class="bab-content-scroll">
+                <!-- Kotak Misteri / Surat Tersembunyi -->
+                <div class="mystery-box glass-card" onclick="openMysteryBox(this)">
+                    <div class="mystery-header">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <span>Ketuk untuk Buka Surat Tersembunyi 💌</span>
+                    </div>
+                    <div class="mystery-content hidden">
+                        <p>"Tidak ada satupun jam malam belajarmu yang terbuang dan tidak ada lembaran buku yang kamu baca sia-sia. Semua itu membentuk dirimu jadi pribadi yang luar biasa tangguh."</p>
+                    </div>
+                </div>
+
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>Kamu Sudah Hebat</h3>
+                    <p>Apapun hasil akhirnya, di mataku kamu sudah menjadi pemenang karena tidak pernah lari dari tantangan.</p>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(3)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(5)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 5: SUDUT PANDANG BARU (SKENARIO TERBAIK)               -->
+        <!-- [YANG BISA DIRUBAH]: Kalimat motivasi sudut pandang baru   -->
+        <!-- ========================================================== -->
+        <section id="bab5" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Sudut Pandang Baru</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                    <h3>Bukan Gagal, Tapi Ditunda</h3>
+                    <p>Garis waktu hidup setiap orang berbeda. Kampus impian itu bukan tertutup selamanya, melainkan Tuhan sedang menyiapkan waktu dan skenario yang jauh lebih indah di tahun <b>2027</b>.</p>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(4)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(6)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 6: REHAT & PEMULIHAN DIRI                              -->
+        <!-- [YANG BISA DIRUBAH]: Kalimat istirahat & kotak misteri ke-2  -->
+        <!-- ========================================================== -->
+        <section id="bab6" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Rehat & Memulihkan Diri</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3>Istirahatlah Tanpa Rasa Bersalah</h3>
+                    <p>Tahun ini kamu sudah bekerja keras. Sekarang, izinkan hatimu beristirahat, tarik napas dalam-dalam, dan lepaskan beban pikiran.</p>
+                </div>
+                <div class="mystery-box glass-card" onclick="openMysteryBox(this)">
+                    <div class="mystery-header">
+                        <i class="fa-solid fa-gift"></i>
+                        <span>Pesan Pemulihan Jiwa 🎁</span>
+                    </div>
+                    <div class="mystery-content hidden">
+                        <p>"Badai pasti berlalu. Kamu berhak bahagia hari ini tanpa harus memikirkan beban esok hari. Tetaplah pada pendirian mu dan jangan terus bersedih atau berkecil hati"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(5)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(7)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 7: GALERI 4 FOTO & KATA-KATA BERSINAR                  -->
+        <!-- [YANG BISA DIRUBAH]: Ganti link/nama file foto (src="...")   -->
+        <!-- ========================================================== -->
+        <section id="bab7" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Senyumanmu yang Bersinar</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="glass-card text-center">
+                    <p class="glowing-quote">✨ "Saat kamu bahagia, kamu terlihat bersinar" ✨</p>
+                </div>
+
+                <!-- Slot 4 Foto -->
+                <div class="photo-grid">
+                    <div class="photo-item glass-card"><img src="foto/foto 1.jpg" alt="Foto 1"></div>
+                    <div class="photo-item glass-card"><img src="foto/foto 2.jpg" alt="Foto 2"></div>
+                    <div class="photo-item glass-card"><img src="foto/foto 3.jpg" alt="Foto 3"></div>
+                    <div class="photo-item glass-card"><img src="foto/foto 4.jpg" alt="Foto 4"></div>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(6)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(8)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 8: KOTAK MANTRA SEMANGAT (GENERATOR INTERAKTIF)        -->
+        <!-- [YANG BISA DIRUBAH]: Daftar kata-kata motivasi di script.js  -->
+        <!-- ========================================================== -->
+        <section id="bab8" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Kotak Mantra Semangat</h2></div>
+            
+            <div class="bab-content-scroll text-center">
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Butuh Dorongan Semangat?</h3>
+                    <p>Klik tombol di bawah ini setiap kali kamu merasa butuh energi positif:</p>
+                    <button id="quoteBtn" class="action-btn">Buka Mantra Hari Ini sayangg 💜</button>
+                    <div id="quoteBox" class="quote-box hidden">
+                        <p id="quoteText">"Kamu adalah pejuang terhebat. Tahun 2027 akan menjadi panggung kemenanganmu"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(7)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(9)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 9: JANJI SETIA & DUKUNGAN TANPA SYARAT                 -->
+        <!-- [YANG BISA DIRUBAH]: Kalimat komitmen dan dukungan         -->
+        <!-- ========================================================== -->
+        <section id="bab9" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Janji Setia Mendampingi</h2></div>
+            
+            <div class="bab-content-scroll">
+                <div class="story-card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <h3>Aku Selalu Ada di Sampingmu</h3>
+                    <p>Apapun jalan yang kamu tempuh menuju tahun 2027 nanti, tanganku akan selalu menggenggam erat tanganmu tanpa pernah lepas sayangg.</p>
+                </div>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(8)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" onclick="flyToNextBab(10)">Lanjut <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+
+        <!-- ========================================================== -->
+        <!-- BAB 10: PENUTUP & TOMBOL KEMBALI KE LOCK SCREEN            -->
+        <!-- [YANG BISA DIRUBAH]: Teks tanda tangan & pesan penutup       -->
+        <!-- ========================================================== -->
+        <section id="bab10" class="page">
+            <div class="status-bar"><span class="currentTime">00:00</span><div class="status-icons"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-signal"></i><i class="fa-solid fa-battery-full"></i></div></div>
+            <div class="bab-header"><h2>Lembaran Baru 2027</h2></div>
+            
+            <div class="bab-content-scroll text-center">
+                <div class="story-card glass-card highlight-card">
+                    <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Mari!, Rebut Tahun 2027</h3>
+                    <p>Tahun depan adalah milikmu. Mari bangkit lebih kuat, belajar lebih bijak, dan buktikan kemampuanmu.</p>
+                    <p class="signature-text">With love, your favorite, Kikii❤️</p>
+                </div>
+
+                <!-- Tombol Kembali ke Lock Screen -->
+                <button id="resetLockBtn" class="action-btn return-btn">
+                    <i class="fa-solid fa-lock"></i> Kunci Kembali Layar
+                </button>
+            </div>
+
+            <div class="bab-navigation">
+                <button class="nav-btn prev-btn" onclick="switchBab(9)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="nav-btn next-btn" disabled><i class="fa-solid fa-check"></i></button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
